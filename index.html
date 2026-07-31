@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ===== SEO ===== -->
+  <title>Stötta Kovács till AIK – supporterpledge (icke-bindande)</title>
+  <meta name="description" content="Visa ditt stöd: gör en icke-bindande pledge för att få Robin Kovács till AIK. Inga pengar dras – sidan samlar endast avsiktsförklaringar från supportrar." />
+  <meta name="robots" content="noindex,nofollow" />
+
+  <!-- ===== Open Graph (Facebook, LinkedIn) ===== -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kovacs-test.pplx.app/" />
+  <meta property="og:title" content="Stötta Kovács till AIK" />
+  <meta property="og:description" content="Gör en icke-bindande pledge och visa hur mycket du är villig att bidra om AIK öppnar en officiell insamling. Inga pengar dras på denna sida." />
+  <!-- og:image MÅSTE vara en absolut URL (https://...) för att fungera på Facebook/X.
+       Rekommenderad storlek: 1200x630 px (PNG eller JPG, under 1 MB).
+       En färdig bild finns i assets/og-image.png – byt bara ut domänen nedan. -->
+  <meta property="og:image" content="https://kovacs-test.pplx.app/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="sv_SE" />
+
+  <!-- ===== X (Twitter) cards ===== -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Stötta Kovács till AIK" />
+  <meta name="twitter:description" content="Icke-bindande supporterpledges – inga pengar dras. Visa ditt engagemang." />
+  <meta name="twitter:image" content="https://kovacs-test.pplx.app/assets/og-image.png" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230B0B0C'/%3E%3Cpath d='M9 7h4v8l6-8h5l-7 9 7 9h-5l-6-8v8H9V7z' fill='%23FFD500'/%3E%3C/svg%3E" />
+
+  <!-- Typsnitt: Clash Display (rubriker) + Satoshi (brödtext) via Fontshare -->
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700&f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css?v=4" />
+</head>
+<body>
+
+  <!-- ================= HERO ================= -->
+  <header class="hero" id="topp">
+    <div class="hero-inner">
+      <div class="brand">
+        <svg class="brand-mark" viewBox="0 0 40 40" fill="none" aria-label="Supporterinitiativets logotyp" role="img">
+          <rect x="1.5" y="1.5" width="37" height="37" rx="8" stroke="#FFD500" stroke-width="3"/>
+          <path d="M12 9h5v10l7.5-10H31l-8.5 11L31 31h-6.5L17 21v10h-5V9z" fill="#FFD500"/>
+        </svg>
+        <span class="brand-name">Supporterinitiativ<span class="brand-dot">.</span></span>
+      </div>
+
+      <p class="hero-disclaimer" role="note">
+        <strong>Obs:</strong> Oberoende supporterinitiativ – inte en officiell AIK-kanal.
+        Inga pengar samlas in här, endast icke-bindande avsiktsförklaringar.
+      </p>
+
+      <h1>Vi vill se <span class="hl">Kovács</span> i AIK&#8209;tröjan</h1>
+
+      <p class="hero-sub">
+        Skriv upp dig och visa hur mycket du är villig att bidra.
+        Inga pengar dras nu. Om AIK öppnar en officiell insamling kontaktar vi dig.
+      </p>
+
+      <div class="hero-cta">
+        <a href="#pledge" class="btn btn-primary">Gör din pledge</a>
+        <span class="cta-note">Tar 30 sekunder · Ingen betalning · Icke&#8209;bindande</span>
+      </div>
+    </div>
+    <div class="hero-stripe" aria-hidden="true"></div>
+  </header>
+
+  <main>
+    <!-- ================= PROGRESS ================= -->
+    <section class="progress-section" aria-labelledby="progress-title">
+      <div class="container">
+        <h2 id="progress-title">Så här långt har vi kommit</h2>
+
+        <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="1500000" aria-valuenow="0" id="progressBar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <div class="progress-meta">
+          <p class="progress-stats"><strong id="pledgedAmount">0&nbsp;kr</strong> pledgat av <strong id="pledgedCount">0</strong> personer</p>
+          <p class="progress-goal">Mål: 1&nbsp;500&nbsp;000&nbsp;kr</p>
+        </div>
+
+        <p class="micro-disclaimer">
+          Detta är en avsiktsförklaring, inte en betalning. Inga pengar samlas in på denna sida.
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= FORMULÄR ================= -->
+    <section class="form-section" id="pledge" aria-labelledby="form-title">
+      <div class="container">
+        <div class="form-card">
+          <h2 id="form-title">Gör din pledge</h2>
+          <p class="form-lead">Fyll i hur mycket du skulle bidra med om klubben öppnar en officiell insamling.</p>
+
+          <form id="pledgeForm" novalidate>
+            <div class="field">
+              <label for="name">Namn <span class="optional">(valfritt)</span></label>
+              <input type="text" id="name" name="namn" autocomplete="name" placeholder="Ditt namn" />
+            </div>
+
+            <div class="field">
+              <label for="email">E-post <span class="required">*</span></label>
+              <input type="email" id="email" name="email" autocomplete="email" required placeholder="du@exempel.se" />
+              <span class="field-error" id="emailError" hidden>Ange en giltig e-postadress.</span>
+            </div>
+
+            <fieldset class="field">
+              <legend>Pledge-belopp i kr <span class="required">*</span></legend>
+              <div class="amount-grid" id="amountGrid">
+                <button type="button" class="amount-pill" data-amount="100">100&nbsp;kr</button>
+                <button type="button" class="amount-pill" data-amount="250">250&nbsp;kr</button>
+                <button type="button" class="amount-pill" data-amount="500">500&nbsp;kr</button>
+                <button type="button" class="amount-pill" data-amount="1000">1&nbsp;000&nbsp;kr</button>
+                <button type="button" class="amount-pill amount-pill-custom" data-amount="custom">Annat belopp</button>
+              </div>
+              <div class="custom-amount" id="customAmountWrap" hidden>
+                <label for="customAmount" class="sr-only">Eget belopp i kr</label>
+                <input type="number" id="customAmount" min="1" step="1" inputmode="numeric" placeholder="Skriv belopp i kr" />
+              </div>
+              <input type="hidden" id="amount" name="belopp_kr" />
+              <span class="field-error" id="amountError" hidden>Välj eller ange ett belopp.</span>
+            </fieldset>
+
+            <div class="field field-checkbox">
+              <input type="checkbox" id="consent" name="samtycke_kontakt" value="ja" required />
+              <label for="consent">Jag godkänner att bli kontaktad om AIK startar en officiell insamling</label>
+            </div>
+            <span class="field-error" id="consentError" hidden>Du behöver godkänna för att vi ska kunna kontakta dig.</span>
+
+            <!-- Honeypot mot spam – lämna orörd -->
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="honeypot" aria-hidden="true" />
+
+            <button type="submit" class="btn btn-primary btn-submit" id="submitBtn">Skicka min pledge</button>
+
+            <p class="gdpr-note">
+              Din e-post används endast för uppföljning om denna kampanj och delas inte med tredje part.
+            </p>
+
+            <p class="form-status" id="formStatus" role="status" aria-live="polite" hidden></p>
+          </form>
+
+          <div class="confirmation" id="confirmation" hidden>
+            <svg viewBox="0 0 48 48" fill="none" aria-hidden="true" class="confirm-icon">
+              <circle cx="24" cy="24" r="22" stroke="#FFD500" stroke-width="3"/>
+              <path d="M15 24.5l6.5 6.5L34 18" stroke="#FFD500" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <h3>Tack!</h3>
+            <p id="confirmationText">Din pledge är registrerad. Vi hör av oss om/när AIK öppnar en officiell insamlingskanal.</p>
+            <p class="micro-disclaimer">Inga pengar har dragits. Din pledge är en icke-bindande avsiktsförklaring.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FAKTARUTA ================= -->
+    <section class="facts-section" aria-labelledby="facts-title">
+      <div class="container">
+        <div class="facts-card">
+          <h2 id="facts-title">Varför detta behövs</h2>
+          <p>
+            AIK och Robin Kovács stod nära en överenskommelse inför den kommande säsongen.
+            Ett finansieringsgap uppstod dock i slutskedet, vilket satte affären på paus.
+            Den här sidan samlar icke-bindande pledges för att visa hur stort supporterstödet faktiskt är.
+            Resultatet kan fungera som underlag när klubben tar beslut om en eventuell officiell insamling.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= DELNING ================= -->
+    <section class="share-section" aria-labelledby="share-title">
+      <div class="container">
+        <h2 id="share-title">Dela så vi når fler AIK-fans</h2>
+        <div class="share-buttons">
+          <button type="button" class="btn btn-share" id="shareFacebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-8.2h2.8l.4-3.2h-3.2V7.5c0-.9.3-1.6 1.6-1.6h1.7V3.1c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.3H7.3v3.2h2.8V21h3.4z"/></svg>
+            Facebook
+          </button>
+          <button type="button" class="btn btn-share" id="shareX">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.8 3h3l-6.7 7.7L22 21h-6.2l-4.8-6.3L5.4 21h-3l7.2-8.2L2 3h6.3l4.4 5.8L17.8 3zm-1.1 16.2h1.7L7.4 4.7H5.6l11.1 14.5z"/></svg>
+            X
+          </button>
+          <button type="button" class="btn btn-share" id="shareCopy">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            Kopiera länk
+          </button>
+        </div>
+        <p class="share-feedback" id="shareFeedback" role="status" aria-live="polite" hidden>Länken är kopierad.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER / ANSVARSFRISKRIVNING ================= -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-disclaimer">
+        Denna sida drivs av en enskild AIK-supporter och är INTE en officiell kanal från AIK Ishockey AB.
+        Sidan samlar inga betalningar och har ingen koppling till klubbens ekonomi.
+        Alla pledges är icke-bindande avsiktsförklaringar.
+        AIK:s logotyp och varumärke används inte utan tillstånd.
+      </p>
+      <p class="footer-meta">Ett fristående supporterinitiativ · <a href="#topp">Till toppen</a></p>
+    </div>
+  </footer>
+
+  <script src="js/app.js?v=4" defer></script>
+<script data-pplx-inline-edit>
+(function () {
+  if (window === window.top) return;
+
+  const allowedParentOrigins = ["https://www.perplexity.ai","https://perplexity.ai","https://testing.perplexity.ai","https://staging.perplexity.ai","https://*.preview.i.perplexity.ai","http://perplexity.localhost","http://localhost:1420","http://127.0.0.1:1420","http://localhost:3000","http://127.0.0.1:3000","http://localhost:5173","http://127.0.0.1:5173"];
+  const MAX_FONT_BYTES = 500 * 1024;
+  const MAX_TOTAL_FONT_BYTES = 2 * 1024 * 1024;
+  let scrollForwarding = false;
+  let scrollRaf = 0;
+  let trustedTopOrigin = null;
+
+  // Allow entries like "https://*.preview.i.perplexity.ai" — the wildcard
+  // matches a single DNS label (no dots), so "https://*.foo" cannot stretch
+  // across multiple labels.
+  function matchesAllowedOrigin(origin) {
+    if (!origin) return false;
+    for (const entry of allowedParentOrigins) {
+      if (!entry.includes("*")) {
+        if (entry === origin) return true;
+        continue;
+      }
+      const pattern = new RegExp(
+        "^" +
+          entry.replace(/[.+?^${}()|[\]\\]/g, "\\$&").replace(/\*/g, "[^.]+") +
+          "$",
+      );
+      if (pattern.test(origin)) return true;
+    }
+    return false;
+  }
+
+  // Trust decision: when the sender is same-origin-visible (event.origin is a
+  // real origin like https://www.perplexity.ai) we trust event.origin directly.
+  // When event.origin is "null" (opaque broker srcdoc), we fall back to the
+  // broker's stamped `parentOrigin` to identify the top window. The fallback
+  // is claim-only — we rely on the browser's native `targetOrigin` enforcement
+  // on the response path (see postToTrustedTop) to ensure replies can't be
+  // delivered to anyone but the actual top window of that claimed origin.
+  function getTrustedParentOrigin(event) {
+    const forwardedParentOrigin =
+      typeof event.data.parentOrigin === "string" ? event.data.parentOrigin : null;
+    const parentOrigin = event.origin === "null" ? forwardedParentOrigin : event.origin;
+    return matchesAllowedOrigin(parentOrigin) ? parentOrigin : null;
+  }
+
+  // All responses go to window.top with targetOrigin = the allowlisted origin.
+  // An attacker that iframes us inside their own null-origin broker can claim
+  // any parentOrigin they like, but the browser will drop the reply whenever
+  // the real top's origin doesn't match — so the screenshot never leaves.
+  function postToTrustedTop(message) {
+    if (!trustedTopOrigin) return;
+    try {
+      window.top.postMessage(message, trustedTopOrigin);
+    } catch (_error) {}
+  }
+
+  function inlineAll(original, clone) {
+    if (original.nodeType !== 1 || clone.nodeType !== 1) return;
+
+    try {
+      const computedStyle = getComputedStyle(original);
+      // cssText on a computed style is the serialized declaration in modern
+      // Chromium/Safari — a single read beats enumerating ~400 longhand
+      // properties. Firefox returns "" here, so we fall back on empty.
+      const serialized = computedStyle.cssText;
+      if (serialized) {
+        clone.style.cssText = serialized;
+      } else {
+        const parts = new Array(computedStyle.length);
+        for (let index = 0; index < computedStyle.length; index += 1) {
+          const property = computedStyle[index];
+          parts[index] = `${property}:${computedStyle.getPropertyValue(property)};`;
+        }
+        clone.style.cssText = parts.join("");
+      }
+    } catch (_error) {}
+
+    const originalChildren = original.children;
+    const clonedChildren = clone.children;
+    for (
+      let index = 0;
+      index < originalChildren.length && index < clonedChildren.length;
+      index += 1
+    ) {
+      inlineAll(originalChildren[index], clonedChildren[index]);
+    }
+  }
+
+  function extractFontUrl(srcValue) {
+    const matches = [
+      ...srcValue.matchAll(
+        /url\(["']?([^"')]+)["']?\)(?:\s*format\(["']?([^"')]+)["']?\))?/gi,
+      ),
+    ];
+    if (matches.length === 0) return null;
+    const woff2 = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff2"));
+    if (woff2) return woff2[1];
+    const woff = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff"));
+    if (woff) return woff[1];
+    return matches[0][1];
+  }
+
+  // Cache resolved font URL -> data URI across captures. Fonts on a page
+  // essentially never change, and a batch run emits multiple captures back to
+  // back — without this we'd refetch + re-base64 every time.
+  const fontDataUriCache = new Map();
+  const SRC_DECLARATION_RE = /src\s*:\s*[^;}]+/i;
+
+  async function fetchAsDataUri(url) {
+    if (fontDataUriCache.has(url)) return fontDataUriCache.get(url);
+    let dataUri = null;
+    try {
+      const response = await fetch(url, { mode: "cors", credentials: "omit" });
+      if (response.ok) {
+        const blob = await response.blob();
+        if (blob.size <= MAX_FONT_BYTES) {
+          dataUri = await new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onloadend = () =>
+              resolve(typeof reader.result === "string" ? reader.result : null);
+            reader.onerror = () => resolve(null);
+            reader.readAsDataURL(blob);
+          });
+        }
+      }
+    } catch (_error) {
+      dataUri = null;
+    }
+    fontDataUriCache.set(url, dataUri);
+    return dataUri;
+  }
+
+  function collectFontFaceRuleTexts() {
+    const rules = [];
+    for (const sheet of document.styleSheets) {
+      let cssRules;
+      try {
+        cssRules = sheet.cssRules;
+      } catch (_error) {
+        continue;
+      }
+      if (!cssRules) continue;
+      for (const rule of cssRules) {
+        const cssText = rule.cssText || "";
+        if (cssText.startsWith("@font-face")) rules.push(cssText);
+      }
+    }
+    return rules;
+  }
+
+  async function buildInlinedFontCss() {
+    const ruleTexts = collectFontFaceRuleTexts();
+    if (ruleTexts.length === 0) return null;
+
+    const resolved = ruleTexts.map((cssText) => {
+      if (!SRC_DECLARATION_RE.test(cssText)) return null;
+      const srcMatch = cssText.match(/src\s*:\s*([^;}]+)[;}]/i);
+      if (!srcMatch) return null;
+      const url = extractFontUrl(srcMatch[1]);
+      if (!url) return null;
+      try {
+        return { cssText, url: new URL(url, document.baseURI).href };
+      } catch (_error) {
+        return null;
+      }
+    });
+
+    const dataUris = await Promise.all(
+      resolved.map((entry) => (entry ? fetchAsDataUri(entry.url) : Promise.resolve(null))),
+    );
+
+    const inlined = [];
+    let totalBytes = 0;
+    for (let index = 0; index < resolved.length; index += 1) {
+      const entry = resolved[index];
+      const dataUri = dataUris[index];
+      if (!entry || !dataUri) continue;
+      const approxBytes = dataUri.length * 0.75;
+      if (totalBytes + approxBytes > MAX_TOTAL_FONT_BYTES) break;
+      totalBytes += approxBytes;
+      inlined.push(entry.cssText.replace(SRC_DECLARATION_RE, `src: url("${dataUri}")`));
+    }
+    return inlined.length > 0 ? inlined.join("\n") : null;
+  }
+
+  function stripExternal(clone) {
+    const images = clone.querySelectorAll("img");
+    for (let index = 0; index < images.length; index += 1) {
+      const src = images[index].getAttribute("src");
+      if (src && !src.startsWith("data:")) images[index].removeAttribute("src");
+    }
+
+    const elements = clone.querySelectorAll("*");
+    for (let index = 0; index < elements.length; index += 1) {
+      const style = elements[index].style.cssText;
+      if (style && style.includes("url(")) {
+        elements[index].style.cssText = style.replace(
+          /url\(["']?(?!data:)[^)"']*["']?\)/gi,
+          "none",
+        );
+      }
+    }
+  }
+
+  function emitScroll() {
+    scrollRaf = 0;
+    if (!scrollForwarding) return;
+    postToTrustedTop({
+      type: "INLINE_EDIT_SCROLL",
+      scrollX: window.scrollX,
+      scrollY: window.scrollY,
+    });
+  }
+
+  window.addEventListener(
+    "scroll",
+    function () {
+      if (!scrollForwarding || scrollRaf) return;
+      scrollRaf = requestAnimationFrame(emitScroll);
+    },
+    { passive: true, capture: true },
+  );
+
+  async function handleCaptureRequest(event) {
+    const requestId = event.data.requestId;
+    const scrollX = window.scrollX;
+    const scrollY = window.scrollY;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    function postResult(dataUrl) {
+      postToTrustedTop({
+        type: "INLINE_EDIT_SCREENSHOT_RESULT",
+        requestId,
+        dataUrl,
+        scrollX,
+        scrollY,
+      });
+    }
+
+    try {
+      // Wait for any pending web fonts to resolve so both inline metrics and
+      // the @font-face inlining below see the same loaded faces.
+      if (document.fonts && document.fonts.ready) {
+        try {
+          await document.fonts.ready;
+        } catch (_error) {}
+      }
+
+      const clone = document.documentElement.cloneNode(true);
+      inlineAll(document.documentElement, clone);
+
+      const removedNodes = clone.querySelectorAll("script,link[rel=\"stylesheet\"],style");
+      for (let index = 0; index < removedNodes.length; index += 1) {
+        removedNodes[index].remove();
+      }
+
+      stripExternal(clone);
+
+      // Re-embed web fonts as data-URI @font-face rules so the SVG rasterizer
+      // can resolve them — external font URLs aren't fetched during
+      // foreignObject rendering, which would otherwise force a fallback face
+      // and change text metrics.
+      const inlinedFontCss = await buildInlinedFontCss();
+      if (inlinedFontCss) {
+        const styleEl = document.createElement("style");
+        styleEl.textContent = inlinedFontCss;
+        const head = clone.querySelector("head");
+        if (head) head.appendChild(styleEl);
+        else clone.insertBefore(styleEl, clone.firstChild);
+      }
+
+      const html = new XMLSerializer().serializeToString(clone);
+      const svg =
+        `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">` +
+        '<foreignObject width="100%" height="100%">' +
+        `<div xmlns="http://www.w3.org/1999/xhtml" style="width:${width}px;height:${height}px;overflow:hidden">` +
+        `<div style="position:relative;left:-${scrollX}px;top:-${scrollY}px">` +
+        html +
+        "</div></div></foreignObject></svg>";
+      const svgUrl = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
+      const image = new Image();
+      image.onload = function () {
+        const canvas = document.createElement("canvas");
+        canvas.width = width;
+        canvas.height = height;
+        canvas.getContext("2d").drawImage(image, 0, 0);
+        postResult(canvas.toDataURL("image/png"));
+      };
+      image.onerror = function () {
+        postResult(null);
+      };
+      image.src = svgUrl;
+    } catch (_error) {
+      postResult(null);
+    }
+  }
+
+  window.addEventListener("message", function (event) {
+    if (!event.data) return;
+    // Only accept messages from the direct parent frame. Blocks sibling /
+    // unrelated-window postMessage senders that could otherwise reach us.
+    if (event.source !== window.parent) return;
+
+    const trustedParentOrigin = getTrustedParentOrigin(event);
+    if (!trustedParentOrigin) return;
+    trustedTopOrigin = trustedParentOrigin;
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_START") {
+      scrollForwarding = true;
+      emitScroll();
+      return;
+    }
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_STOP") {
+      scrollForwarding = false;
+      if (scrollRaf) cancelAnimationFrame(scrollRaf);
+      scrollRaf = 0;
+      return;
+    }
+
+    if (event.data.type !== "INLINE_EDIT_CAPTURE_REQUEST") return;
+
+    handleCaptureRequest(event);
+  });
+})();
+
+
+</script></body>
+</html>

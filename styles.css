@@ -1,0 +1,553 @@
+/* ==========================================================================
+   Stötta Kovács till AIK – styles
+   Färger: svart / gult / vitt (AIK-inspirerat, inga officiella emblem)
+   ========================================================================== */
+
+:root {
+  --black: #0b0b0c;
+  --black-soft: #141416;
+  --yellow: #ffd500;
+  --yellow-deep: #e6b800;
+  --white: #fafaf7;
+  --grey: #8a8a86;
+  --grey-light: #e7e7e2;
+  --danger: #e03e3e;
+
+  --font-display: 'Clash Display', 'Arial Black', sans-serif;
+  --font-body: 'Satoshi', 'Helvetica Neue', Arial, sans-serif;
+
+  --text-xs: 0.8125rem;   /* 13px */
+  --text-sm: 0.9375rem;   /* 15px */
+  --text-base: 1.0625rem; /* 17px */
+  --text-lg: 1.25rem;     /* 20px */
+  --text-xl: 1.75rem;     /* 28px */
+
+  --radius: 14px;
+  --container: 44rem;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  color: var(--black);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ===== Knappar ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: var(--text-sm);
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-primary {
+  background: var(--yellow);
+  color: var(--black);
+  padding: 1rem 2.5rem;
+  font-size: var(--text-base);
+  letter-spacing: 0.01em;
+  box-shadow: 0 4px 20px rgba(255, 213, 0, 0.35);
+}
+
+.btn-primary:hover { background: var(--yellow-deep); transform: translateY(-2px); }
+.btn-primary:active { transform: translateY(0); }
+
+.btn:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 3px;
+}
+
+/* ==========================================================================
+   HERO
+   ========================================================================== */
+.hero {
+  position: relative;
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 20%, rgba(255, 213, 0, 0.12), transparent 60%),
+    var(--black);
+  color: var(--white);
+  padding: 2rem 1.25rem 5rem;
+  overflow: hidden;
+}
+
+.hero-inner {
+  max-width: var(--container);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 2.75rem;
+}
+
+.brand-mark { width: 34px; height: 34px; }
+
+.brand-name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.brand-dot { color: var(--yellow); }
+
+.hero-disclaimer {
+  font-size: var(--text-xs);
+  line-height: 1.5;
+  color: rgba(250, 250, 247, 0.85);
+  background: rgba(255, 213, 0, 0.08);
+  border: 1px solid rgba(255, 213, 0, 0.35);
+  border-radius: var(--radius);
+  padding: 0.6rem 0.9rem;
+  margin-bottom: 1.75rem;
+  max-width: 34rem;
+}
+
+.hero-disclaimer strong { color: var(--yellow); }
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.5rem, 9vw, 4.5rem);
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  max-width: 12ch;
+  margin-bottom: 1.25rem;
+}
+
+.hero .hl { color: var(--yellow); }
+
+.hero-sub {
+  font-size: var(--text-lg);
+  line-height: 1.5;
+  color: rgba(250, 250, 247, 0.85);
+  max-width: 32rem;
+  margin-bottom: 2.25rem;
+}
+
+.hero-cta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.cta-note {
+  font-size: var(--text-xs);
+  color: rgba(250, 250, 247, 0.65);
+  letter-spacing: 0.02em;
+}
+
+.hero-stripe {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--yellow) 0 24px,
+    var(--black) 24px 48px
+  );
+}
+
+/* ==========================================================================
+   PROGRESS
+   ========================================================================== */
+.progress-section {
+  padding: 3.5rem 0 3rem;
+  background: var(--white);
+}
+
+.progress-section h2,
+.form-section h2,
+.facts-section h2,
+.share-section h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-xl);
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  margin-bottom: 1.5rem;
+}
+
+.progress-track {
+  height: 22px;
+  background: var(--grey-light);
+  border-radius: 999px;
+  overflow: hidden;
+  border: 2px solid var(--black);
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  min-width: 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--yellow) 0 14px,
+    var(--yellow-deep) 14px 28px
+  );
+  border-radius: 999px;
+  transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.progress-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.9rem;
+}
+
+.progress-stats { font-size: var(--text-base); }
+.progress-stats strong { font-weight: 700; }
+
+.progress-goal {
+  font-size: var(--text-sm);
+  color: var(--grey);
+  font-weight: 500;
+}
+
+.micro-disclaimer {
+  font-size: var(--text-xs);
+  color: var(--grey);
+  margin-top: 0.75rem;
+}
+
+/* ==========================================================================
+   FORMULÄR
+   ========================================================================== */
+.form-section {
+  padding: 1rem 0 4rem;
+}
+
+.form-card {
+  background: var(--black);
+  color: var(--white);
+  border-radius: calc(var(--radius) + 6px);
+  padding: clamp(1.5rem, 5vw, 2.75rem);
+}
+
+.form-card h2 { color: var(--yellow); margin-bottom: 0.5rem; }
+
+.form-lead {
+  font-size: var(--text-sm);
+  color: rgba(250, 250, 247, 0.75);
+  margin-bottom: 2rem;
+  max-width: 30rem;
+}
+
+.field { margin-bottom: 1.4rem; border: none; }
+
+.field label,
+.field legend {
+  display: block;
+  font-size: var(--text-sm);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.optional { font-weight: 400; color: rgba(250, 250, 247, 0.6); }
+.required { color: var(--yellow); }
+
+.field input[type='text'],
+.field input[type='email'],
+.field input[type='number'],
+.custom-amount input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--white);
+  background: var(--black-soft);
+  border: 2px solid rgba(250, 250, 247, 0.18);
+  border-radius: var(--radius);
+  transition: border-color 0.15s ease;
+}
+
+.field input:focus,
+.custom-amount input:focus {
+  outline: none;
+  border-color: var(--yellow);
+}
+
+.field input::placeholder { color: rgba(250, 250, 247, 0.35); }
+
+.amount-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(6.2rem, 1fr));
+  gap: 0.6rem;
+}
+
+.amount-pill {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: var(--text-sm);
+  padding: 0.8rem 0.5rem;
+  background: var(--black-soft);
+  color: var(--white);
+  border: 2px solid rgba(250, 250, 247, 0.18);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+  white-space: nowrap;
+}
+
+.amount-pill:hover { border-color: var(--yellow); }
+
+.amount-pill.selected {
+  background: var(--yellow);
+  border-color: var(--yellow);
+  color: var(--black);
+}
+
+.amount-pill:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 2px;
+}
+
+.custom-amount { margin-top: 0.75rem; }
+
+.field-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+}
+
+.field-checkbox input[type='checkbox'] {
+  flex-shrink: 0;
+  width: 1.35rem;
+  height: 1.35rem;
+  margin-top: 0.15rem;
+  accent-color: var(--yellow);
+  cursor: pointer;
+}
+
+.field-checkbox label {
+  font-weight: 500;
+  font-size: var(--text-sm);
+  margin-bottom: 0;
+  cursor: pointer;
+}
+
+.field-error {
+  display: block;
+  font-size: var(--text-xs);
+  color: #ff9a9a;
+  margin-top: 0.4rem;
+}
+
+.honeypot {
+  position: absolute !important;
+  left: -9999px !important;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.btn-submit {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.btn-submit[disabled] {
+  opacity: 0.6;
+  cursor: wait;
+  transform: none;
+}
+
+/* Laddningsindikator i skicka-knappen */
+.spinner {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin-right: 0.55em;
+  border: 2.5px solid rgba(11, 11, 12, 0.25);
+  border-top-color: var(--black);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  vertical-align: -0.15em;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.gdpr-note {
+  font-size: var(--text-xs);
+  color: rgba(250, 250, 247, 0.6);
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.form-status {
+  margin-top: 1rem;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  text-align: center;
+}
+
+.form-status.error { color: #ff9a9a; }
+
+/* Bekräftelsevy */
+.confirmation {
+  text-align: center;
+  padding: 1.5rem 0 0.5rem;
+}
+
+.confirm-icon {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 1rem;
+}
+
+.confirmation h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-xl);
+  text-transform: uppercase;
+  color: var(--yellow);
+  margin-bottom: 0.6rem;
+}
+
+.confirmation p {
+  max-width: 28rem;
+  margin-inline: auto;
+  font-size: var(--text-base);
+}
+
+.confirmation .micro-disclaimer {
+  color: rgba(250, 250, 247, 0.6);
+  margin-top: 1rem;
+}
+
+/* ==========================================================================
+   FAKTARUTA
+   ========================================================================== */
+.facts-section { padding: 0 0 3.5rem; }
+
+.facts-card {
+  border: 2px solid var(--black);
+  border-left: 10px solid var(--yellow);
+  border-radius: var(--radius);
+  padding: clamp(1.25rem, 4vw, 2rem);
+}
+
+.facts-card h2 { margin-bottom: 0.75rem; }
+.facts-card p { max-width: 60ch; }
+
+/* ==========================================================================
+   DELNING
+   ========================================================================== */
+.share-section {
+  padding: 3rem 0 3.5rem;
+  background: var(--grey-light);
+  text-align: center;
+}
+
+.share-section h2 { margin-bottom: 1.25rem; }
+
+.share-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.btn-share {
+  background: var(--black);
+  color: var(--white);
+  padding: 0.8rem 1.5rem;
+}
+
+.btn-share svg { width: 18px; height: 18px; }
+
+.btn-share:hover {
+  background: var(--yellow);
+  color: var(--black);
+  transform: translateY(-2px);
+}
+
+.share-feedback {
+  margin-top: 1rem;
+  font-size: var(--text-sm);
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.footer {
+  background: var(--black);
+  color: rgba(250, 250, 247, 0.8);
+  padding: 2.5rem 0;
+  border-top: 6px solid var(--yellow);
+}
+
+.footer-disclaimer {
+  font-size: var(--text-xs);
+  line-height: 1.65;
+  max-width: 40rem;
+  margin-bottom: 1.25rem;
+}
+
+.footer-meta {
+  font-size: var(--text-xs);
+  color: rgba(250, 250, 247, 0.5);
+}
+
+.footer-meta a { color: var(--yellow); }
+
+/* ==========================================================================
+   MOBIL
+   ========================================================================== */
+@media (max-width: 480px) {
+  .hero { padding-top: 1.5rem; padding-bottom: 4rem; }
+  .brand { margin-bottom: 2rem; }
+  .hero-cta { width: 100%; }
+  .hero-cta .btn-primary { width: 100%; }
+  .progress-meta { flex-direction: column; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .progress-fill, .btn { transition: none; }
+}
